@@ -1,0 +1,29 @@
+******************** EF-Core: https://docs.microsoft.com/en-us/ef/core/cli/powershell ******************** 
+Before running migrations, ensure the following:
+- Ensure the connection string is set up correctly in the appsettings file.
+- Ensure the database is created.
+- Ensure to select an ASP.NET Core Web Application as your startup project before running migrations.
+- In package manager console, ensure the default project is set to the Persistence project.
+
+Then you can run the following commands in the Package Manager Console:
+- A new migration:
+	Add-Migration First_Migration
+- Get full script database for current migration:
+	Script-Migration -from 0 -to First_Migration
+- Get script between two migrations:
+	Script-Migration -from Add_Fields_UserRoleSupervisor -to Remove_Fields_UserRoleSupervisor
+- Save script migration to file (2 examples):
+	Script-Migration -from 0 -to First_Migration -Output Persistence/Scripts/20230908065534_First_Migration.sql
+	Script-Migration -from Add_Fields_UserRoleSupervisor -to Remove_Fields_UserRoleSupervisor -Output Server/Infrastructure/Persistence/Scripts/20230924233911_Changed_Format_to_Extension.sql
+- Update database with last migration:
+	Update-Database First_Migration
+- To remove last migration:
+	Remove-Migration
+
+*** Remember to remove migration code that delete and insert data in database tables ****
+============================================================================================================
+
+
+******************** Git and Github ******************** 
+Clean cache for GitHub repository:
+- git rm -r --cached .
