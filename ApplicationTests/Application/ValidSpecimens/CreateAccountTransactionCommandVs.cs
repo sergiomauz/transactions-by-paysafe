@@ -15,7 +15,7 @@ namespace ApplicationTests.Application.ValidSpecimens
             fixture.Customizations.Add(new CreateAccountTransactionCommandSb());
             fixture.Behaviors.Add(new OmitOnRecursionBehavior());
 
-            for (var i = 0; i < 2; i++)
+            for (var i = 0; i < 10; i++)
             {
                 yield return new object[] { fixture.Create<CreateAccountTransactionCommand>() };
             }

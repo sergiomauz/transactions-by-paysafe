@@ -41,7 +41,6 @@ namespace ApplicationTests.Application.Handlers
         {
             //
             #region ARRANGE      
-            var validator = new CreateAccountTransactionCommandValidator();
             command.TransferTypeId = 0;
 
             // Fake required objects
@@ -163,7 +162,6 @@ namespace ApplicationTests.Application.Handlers
         {
             //
             #region ARRANGE      
-            var validator = new CreateAccountTransactionCommandValidator();
             command.TransferTypeId = 0;
 
             // Moq 'IAccountsRepository'
@@ -177,8 +175,8 @@ namespace ApplicationTests.Application.Handlers
             #endregion
 
             #region ACT & ASSERT 
-            await Should.ThrowAsync<ContentValidationException>(async () =>
-                await handler.Handle(command, CancellationToken.None)
+            await Should.ThrowAsync<ContentValidationException>(
+                async () => await handler.Handle(command, CancellationToken.None)
             );
             _accountsRepository.Verify(
                 x => x.GetByIdAsync(It.IsAny<Guid>()),
@@ -193,7 +191,6 @@ namespace ApplicationTests.Application.Handlers
         {
             //
             #region ARRANGE      
-            var validator = new CreateAccountTransactionCommandValidator();
             command.TransferTypeId = 0;
 
             // Fake required objects
@@ -233,7 +230,6 @@ namespace ApplicationTests.Application.Handlers
         {
             //
             #region ARRANGE      
-            var validator = new CreateAccountTransactionCommandValidator();
             command.TransferTypeId = 0;
 
             // Fake required objects
@@ -301,7 +297,6 @@ namespace ApplicationTests.Application.Handlers
         {
             //
             #region ARRANGE      
-            var validator = new CreateAccountTransactionCommandValidator();
             command.TransferTypeId = 0;
 
             // Fake required objects
