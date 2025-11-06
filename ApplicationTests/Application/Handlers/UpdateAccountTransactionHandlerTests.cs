@@ -1,13 +1,13 @@
-﻿using Application.Commons.Exceptions;
+﻿using AutoMapper;
+using Moq;
+using Shouldly;
+using Microsoft.Extensions.Logging;
+using Commons.Enums;
+using Domain.Entities;
+using Application.Commons.Exceptions;
 using Application.Infrastructure.Persistence;
 using Application.UseCases.AccountTransactions.Commands.UpdateAccountTransaction;
 using ApplicationTests.Application.ValidSpecimens;
-using AutoMapper;
-using Commons.Enums;
-using Domain.Entities;
-using Microsoft.Extensions.Logging;
-using Moq;
-using Shouldly;
 
 namespace ApplicationTests.Application.Handlers
 {
@@ -30,7 +30,6 @@ namespace ApplicationTests.Application.Handlers
         {
             //
             #region ARRANGE      
-            var validator = new UpdateAccountTransactionCommandValidator();
             command.AccountTransactionStatus = 1;
 
             // Fake required objects
@@ -89,7 +88,6 @@ namespace ApplicationTests.Application.Handlers
         {
             //
             #region ARRANGE      
-            var validator = new UpdateAccountTransactionCommandValidator();
             command.AccountTransactionStatus = 2;
 
             // Fake required objects
@@ -148,7 +146,6 @@ namespace ApplicationTests.Application.Handlers
         {
             //
             #region ARRANGE      
-            var validator = new UpdateAccountTransactionCommandValidator();
             command.AccountTransactionStatus = 1;
 
             // Create handler
@@ -173,7 +170,6 @@ namespace ApplicationTests.Application.Handlers
         {
             //
             #region ARRANGE      
-            var validator = new UpdateAccountTransactionCommandValidator();
             command.AccountTransactionStatus = 2;
 
             // Fake required objects
@@ -223,7 +219,6 @@ namespace ApplicationTests.Application.Handlers
         {
             //
             #region ARRANGE      
-            var validator = new UpdateAccountTransactionCommandValidator();
             command.AccountTransactionStatus = 1;
 
             // Fake required objects

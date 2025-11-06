@@ -112,9 +112,9 @@ namespace Application.UseCases.AccountTransactions.Commands.ValidateAccountTrans
                     {
                         // Send to fails topic if there is a malformed message
                         var failTopicPublished = await _kafkaClientProducerService
-                                                    .PublishAccountTransactionFailAsync(transactionId.ToString(), sourceAccountId.ToString(),
-                                                                                        transactionDate.ToString("yyyy-MM-dd HH:mm:ss"), accumulatedValue,
-                                                                                        currentValue);
+                                                        .PublishAccountTransactionFailAsync(transactionId.ToString(), sourceAccountId.ToString(),
+                                                                                            transactionDate.ToString("yyyy-MM-dd HH:mm:ss"), accumulatedValue,
+                                                                                            currentValue);
                         if (failTopicPublished)
                         {
                             _logger.LogCritical($"Malformed message was not processed. It was sent to 'fails' list in Kafka. \nMessage: {rawMessage}.");

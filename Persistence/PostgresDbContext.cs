@@ -19,18 +19,18 @@ namespace Persistence
             modelBuilder.Entity<Account>().HasData(
                 new Account
                 {
-                    Id = Guid.NewGuid(),
+                    Id = new Guid("0055ea39-0bf2-4556-8f58-4f17248c936d"),
                     Name = "Nieto Portales, Karla",
                     Email = "sergiouce16@gmail.com",
                     Code = "10447853660",
                     CreatedAt = DateTime.UtcNow
                 },
-                new Account 
-                { 
-                    Id = Guid.NewGuid(), 
-                    Name = "Zambrano Jove, Sergio", 
-                    Email = "sergio.mauz88@gmail.com", 
-                    Code = "10447853669", 
+                new Account
+                {
+                    Id = new Guid("3f615cbe-c226-4064-8bd0-00d6dc1933e6"),
+                    Name = "Zambrano Jove, Sergio",
+                    Email = "sergio.mauz88@gmail.com",
+                    Code = "10447853669",
                     CreatedAt = DateTime.UtcNow
                 }
             );
