@@ -1,7 +1,11 @@
-﻿namespace Application.Auth.ApiKeyProtection
+﻿using MediatR;
+
+namespace Application.Auth.ApiKeyProtection
 {
-    //internal class ApiKeyProtectionHandler :
-    //    IRequestHandler<ValidateAccountTransactionCommand>
-    //{
-    //}
+    internal class ApiKeyProtectionHandler :
+        IRequestHandler<ApiKeyProtectionCommand>
+    {
+        public ApiKeyProtectionHandler()
+
+    }
 }

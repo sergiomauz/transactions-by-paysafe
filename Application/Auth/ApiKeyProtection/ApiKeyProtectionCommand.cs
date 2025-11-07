@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using MediatR;
 
 namespace Application.Auth.ApiKeyProtection
 {
-    internal class ApiKeyProtectionCommand
+    public class ApiKeyProtectionCommand : IRequest
     {
+        public string? PublicKey { get; set; }
+        public string? Signature { get; set; }
     }
 }

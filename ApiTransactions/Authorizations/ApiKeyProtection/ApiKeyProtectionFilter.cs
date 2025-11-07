@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc.Filters;
 using AutoMapper;
 using MediatR;
+using Application.Auth.ApiKeyProtection;
 
 namespace Api.AccountTransactions.Authorizations.ApiKeyProtection
 {
@@ -20,6 +21,12 @@ namespace Api.AccountTransactions.Authorizations.ApiKeyProtection
         {
             var publicKey = context.HttpContext.Request.Headers["X-API-KEY"].FirstOrDefault();
             var signature = context.HttpContext.Request.Headers["X-SIGNATURE"].FirstOrDefault();
+            var command = new ApiKeyProtectionCommand
+            {
+                PublicKey = publicKey,
+                Signature = signature
+            };
+
 
             if (publicKey == null || signature == null)
             {
