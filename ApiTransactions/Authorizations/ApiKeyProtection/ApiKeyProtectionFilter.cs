@@ -19,18 +19,12 @@ namespace Api.AccountTransactions.Authorizations.ApiKeyProtection
 
         public void OnAuthorization(AuthorizationFilterContext context)
         {
-            var publicKey = context.HttpContext.Request.Headers["X-API-KEY"].FirstOrDefault();
-            var signature = context.HttpContext.Request.Headers["X-SIGNATURE"].FirstOrDefault();
-            var command = new ApiKeyProtectionCommand
-            {
-                PublicKey = publicKey,
-                Signature = signature
-            };
+            var command = _mapper.Map<ApiKeyProtectionCommand>(context.HttpContext.Request);
+            var httpStatusCode = _mediator.Send(command).GetAwaiter().GetResult();
 
-
-            if (publicKey == null || signature == null)
+            if (httpStatusCode != HttpStatusCode.OK)
             {
-                context.HttpContext.Response.StatusCode = (int)HttpStatusCode.Unauthorized;
+                context.HttpContext.Response.StatusCode = (int)httpStatusCode;
 
                 return;
             }

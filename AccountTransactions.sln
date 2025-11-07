@@ -36,7 +36,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExternalServices", "Externa
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{7823EAC0-6523-4F4F-995C-FAEA6E44CE3E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApplicationTests", "ApplicationTests\ApplicationTests.csproj", "{9A9B6AF0-2D26-44B1-B61D-640D99F925B1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unit.Tests", "ApplicationTests\Unit.Tests.csproj", "{9A9B6AF0-2D26-44B1-B61D-640D99F925B1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Api.AntiFraud", "ApiAntiFraud\Api.AntiFraud.csproj", "{7C13AD1A-4C3A-4FCE-A283-8A86A4DBB5A2}"
 EndProject

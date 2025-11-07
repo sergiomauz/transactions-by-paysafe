@@ -1,9 +1,9 @@
 ﻿using AutoFixture.Kernel;
 using Bogus;
-using ApplicationTests.CustomMocks;
 using Application.UseCases.AccountTransactions.Commands.CreateAccountTransaction;
+using Unit.Tests.CustomMocks;
 
-namespace ApplicationTests.SpecimenBuilders
+namespace Unit.Tests.SpecimenBuilders
 {
     public class CreateAccountTransactionCommandSb : ISpecimenBuilder
     {

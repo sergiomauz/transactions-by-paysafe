@@ -10,9 +10,9 @@ using Application.Commons.Exceptions;
 using Application.Infrastructure.ExternalServices;
 using Application.Infrastructure.Persistence;
 using Application.UseCases.AccountTransactions.Commands.CreateAccountTransaction;
-using ApplicationTests.Application.ValidSpecimens;
+using Unit.Tests.Application.ValidSpecimens;
 
-namespace ApplicationTests.Application.Handlers
+namespace Unit.Tests.Application.Handlers
 {
     public class CreateAccountTransactionHandlerTests : BaseFormatValidationTest
     {

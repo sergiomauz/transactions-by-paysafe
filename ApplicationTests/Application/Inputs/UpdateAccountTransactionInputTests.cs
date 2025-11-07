@@ -1,8 +1,8 @@
 ﻿using Shouldly;
 using Application.UseCases.AccountTransactions.Commands.UpdateAccountTransaction;
-using ApplicationTests.Application.ValidSpecimens;
+using Unit.Tests.Application.ValidSpecimens;
 
-namespace ApplicationTests.Application.Inputs
+namespace Unit.Tests.Application.Inputs
 {
     public class UpdateAccountTransactionInputTests : BaseFormatValidationTest
     {

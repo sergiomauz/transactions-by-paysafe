@@ -2,7 +2,7 @@
 using Bogus;
 using Application.UseCases.AccountTransactions.Commands.ValidateAccountTransaction;
 
-namespace ApplicationTests.SpecimenBuilders
+namespace Unit.Tests.SpecimenBuilders
 {
     public class ValidateAccountTransactionCommandSb : ISpecimenBuilder
     {

@@ -1,9 +1,9 @@
 ﻿using Bogus;
 using Shouldly;
 using Application.UseCases.AccountTransactions.Commands.CreateAccountTransaction;
-using ApplicationTests.Application.ValidSpecimens;
+using Unit.Tests.Application.ValidSpecimens;
 
-namespace ApplicationTests.Application.Inputs
+namespace Unit.Tests.Application.Inputs
 {
     public class CreateAccountTransactionInputTests : BaseFormatValidationTest
     {
