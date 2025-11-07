@@ -1,4 +1,5 @@
 ﻿using System.Net;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using AutoMapper;
 using MediatR;
@@ -24,7 +25,10 @@ namespace Api.AccountTransactions.Authorizations.ApiKeyProtection
 
             if (httpStatusCode != HttpStatusCode.OK)
             {
-                context.HttpContext.Response.StatusCode = (int)httpStatusCode;
+                context.Result = new ObjectResult(new { message = "Access denied: invalid credentials, api-key or signature." })
+                {
+                    StatusCode = (int)httpStatusCode
+                };
 
                 return;
             }

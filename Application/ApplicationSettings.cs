@@ -12,6 +12,6 @@
     {
         public string ClientId { get; set; }
         public string ApiKey { get; set; }
-        public string Signature { get; set; }
+        public string PrivateKey { get; set; }
     }
 }
