@@ -11,10 +11,10 @@ namespace Api.AccountTransactions.Authorizations.ApiKeyProtection
         private readonly IMediator _mediator;
         private readonly IMapper _mapper;
 
-        public ApiKeyProtectionFilter(IServiceProvider services)
+        public ApiKeyProtectionFilter(IMediator mediator, IMapper mapper)
         {
-            _mediator = services.GetService<IMediator>();
-            _mapper = services.GetService<IMapper>();
+            _mediator = mediator;
+            _mapper = mapper;
         }
 
         public void OnAuthorization(AuthorizationFilterContext context)

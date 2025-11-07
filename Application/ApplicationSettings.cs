@@ -5,13 +5,13 @@
         public double Timezone { get; set; }
         public decimal TopCurrentValue { get; set; }
         public decimal TopAccumulatedValueByDay { get; set; }
-        public List<ApplicationClientsSettings> Clients { get; set; } = new();
+        public List<ApplicationClientsSettings> Clients { get; set; }
     }
 
     public class ApplicationClientsSettings
     {
-        public double ClientId { get; set; }
-        public double PublicKey { get; set; }
-        public double Signature { get; set; }
+        public string ClientId { get; set; }
+        public string ApiKey { get; set; }
+        public string Signature { get; set; }
     }
 }
