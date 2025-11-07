@@ -1,9 +1,9 @@
 ﻿using System.Collections;
 using AutoFixture;
-using ApplicationTests.SpecimenBuilders;
 using Application.UseCases.AccountTransactions.Commands.UpdateAccountTransaction;
+using Unit.Tests.SpecimenBuilders;
 
-namespace ApplicationTests.Application.ValidSpecimens
+namespace Unit.Tests.Application.ValidSpecimens
 {
     public class UpdateAccountTransactionCommandVs : IEnumerable<object[]>
     {

@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using Bogus;
 
-namespace ApplicationTests.Application
+namespace Unit.Tests.Application
 {
     public class BaseFormatValidationTest
     {

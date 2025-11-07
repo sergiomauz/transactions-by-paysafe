@@ -1,8 +1,11 @@
-﻿using Application.Infrastructure.ExternalServices;
-using Microsoft.Extensions.Logging;
+﻿using System.Net;
+using System.Security.Cryptography;
+using System.Text;
 using Microsoft.Extensions.Options;
+using Microsoft.Extensions.Logging;
 using RestSharp;
-using System.Net;
+using Application.Infrastructure.ExternalServices;
+
 
 namespace ExternalServices.ApiTransactions
 {
@@ -27,14 +30,18 @@ namespace ExternalServices.ApiTransactions
             };
             var client = new RestClient(options);
             var url = string.Format(_apiTransactionsSettings.Resources.UpdateTransaction, id);
+            var body = new
+            {
+                accountTransactionStatus
+            };
             var request = new RestRequest(url, Method.Put);
+            using var hmac = new HMACSHA256(Encoding.UTF8.GetBytes(_apiTransactionsSettings.PrivateKey));
+            string signature = Convert.ToBase64String(hmac.ComputeHash(Encoding.UTF8.GetBytes(body.ToString())));
+
             request.AddHeader("X-API-KEY", _apiTransactionsSettings.PublicKey);
             request.AddHeader("X-SIGNATURE", _apiTransactionsSettings.PrivateKey);
             request.Timeout = TimeSpan.FromSeconds(_apiTransactionsSettings.Timeout);
-            request.AddJsonBody(new
-            {
-                accountTransactionStatus
-            });
+            request.AddJsonBody(body);
 
             var response = await client.ExecuteAsync(request);
             if (!response.IsSuccessful)

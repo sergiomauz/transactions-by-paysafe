@@ -3,7 +3,6 @@ using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Api.Responses;
 
-
 namespace Api.Controllers
 {
     [ExceptionResponsesProcess]

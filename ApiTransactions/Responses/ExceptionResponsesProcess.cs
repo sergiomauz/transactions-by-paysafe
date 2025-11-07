@@ -6,7 +6,6 @@ using MediatR;
 using Application.Commons.Exceptions;
 using Application.Commons.Utils;
 
-
 namespace Api.Responses
 {
     public class ExceptionResponsesProcess : ExceptionFilterAttribute

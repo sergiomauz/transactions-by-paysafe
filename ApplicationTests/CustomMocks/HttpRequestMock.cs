@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Http;
 using Bogus;
 using Moq;
 
-namespace ApplicationTests.CustomMocks
+namespace Unit.Tests.CustomMocks
 {
     public class HttpRequestMock
     {

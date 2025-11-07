@@ -6,9 +6,9 @@ using Microsoft.Extensions.Options;
 using Application;
 using Application.Infrastructure.ExternalServices;
 using Application.UseCases.AccountTransactions.Commands.ValidateAccountTransaction;
-using ApplicationTests.Application.ValidSpecimens;
+using Unit.Tests.Application.ValidSpecimens;
 
-namespace ApplicationTests.Application.Handlers
+namespace Unit.Tests.Application.Handlers
 {
     public class ValidateAccountTransactionHandlerTests : BaseFormatValidationTest
     {

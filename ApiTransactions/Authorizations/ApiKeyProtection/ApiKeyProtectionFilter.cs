@@ -1,7 +1,9 @@
 ﻿using System.Net;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using AutoMapper;
 using MediatR;
+using Application.Auth.ApiKeyProtection;
 
 namespace Api.AccountTransactions.Authorizations.ApiKeyProtection
 {
@@ -10,20 +12,23 @@ namespace Api.AccountTransactions.Authorizations.ApiKeyProtection
         private readonly IMediator _mediator;
         private readonly IMapper _mapper;
 
-        public ApiKeyProtectionFilter(IServiceProvider services)
+        public ApiKeyProtectionFilter(IMediator mediator, IMapper mapper)
         {
-            _mediator = services.GetService<IMediator>();
-            _mapper = services.GetService<IMapper>();
+            _mediator = mediator;
+            _mapper = mapper;
         }
 
         public void OnAuthorization(AuthorizationFilterContext context)
         {
-            var publicKey = context.HttpContext.Request.Headers["X-API-KEY"].FirstOrDefault();
-            var signature = context.HttpContext.Request.Headers["X-SIGNATURE"].FirstOrDefault();
+            var command = _mapper.Map<ApiKeyProtectionCommand>(context.HttpContext.Request);
+            var httpStatusCode = _mediator.Send(command).GetAwaiter().GetResult();
 
-            if (publicKey == null || signature == null)
+            if (httpStatusCode != HttpStatusCode.OK)
             {
-                context.HttpContext.Response.StatusCode = (int)HttpStatusCode.Unauthorized;
+                context.Result = new ObjectResult(new { message = "Access denied: invalid credentials, api-key or signature." })
+                {
+                    StatusCode = (int)httpStatusCode
+                };
 
                 return;
             }

@@ -7,9 +7,9 @@ using Domain.Entities;
 using Application.Commons.Exceptions;
 using Application.Infrastructure.Persistence;
 using Application.UseCases.AccountTransactions.Commands.UpdateAccountTransaction;
-using ApplicationTests.Application.ValidSpecimens;
+using Unit.Tests.Application.ValidSpecimens;
 
-namespace ApplicationTests.Application.Handlers
+namespace Unit.Tests.Application.Handlers
 {
     public class UpdateAccountTransactionHandlerTests : BaseFormatValidationTest
     {
